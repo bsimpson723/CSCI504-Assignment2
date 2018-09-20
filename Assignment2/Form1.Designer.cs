@@ -51,34 +51,32 @@
             // 
             // Student_ListBox
             // 
+            this.Student_ListBox.DisplayMember = "StudentInfo";
             this.Student_ListBox.FormattingEnabled = true;
-            this.Student_ListBox.Location = new System.Drawing.Point(575, 59);
+            this.Student_ListBox.Location = new System.Drawing.Point(565, 59);
             this.Student_ListBox.Name = "Student_ListBox";
             this.Student_ListBox.Size = new System.Drawing.Size(192, 433);
             this.Student_ListBox.TabIndex = 1;
-            this.Student_ListBox.DataSource = Program.students;
-            this.Student_ListBox.DisplayMember = "StudentInfo";
             // 
             // Course_ListBox
             // 
             this.Course_ListBox.FormattingEnabled = true;
-            this.Course_ListBox.Location = new System.Drawing.Point(782, 59);
+            this.Course_ListBox.Location = new System.Drawing.Point(772, 59);
             this.Course_ListBox.Name = "Course_ListBox";
             this.Course_ListBox.Size = new System.Drawing.Size(192, 433);
             this.Course_ListBox.TabIndex = 2;
-            this.Course_ListBox.DataSource = Program.courses;
             // 
             // Output_TextBox
             // 
-            this.Output_TextBox.Location = new System.Drawing.Point(12, 512);
+            this.Output_TextBox.Location = new System.Drawing.Point(45, 512);
             this.Output_TextBox.Multiline = true;
             this.Output_TextBox.Name = "Output_TextBox";
-            this.Output_TextBox.Size = new System.Drawing.Size(962, 132);
+            this.Output_TextBox.Size = new System.Drawing.Size(919, 132);
             this.Output_TextBox.TabIndex = 3;
             // 
             // PrintRoster_Button
             // 
-            this.PrintRoster_Button.Location = new System.Drawing.Point(12, 59);
+            this.PrintRoster_Button.Location = new System.Drawing.Point(45, 59);
             this.PrintRoster_Button.Name = "PrintRoster_Button";
             this.PrintRoster_Button.Size = new System.Drawing.Size(126, 31);
             this.PrintRoster_Button.TabIndex = 4;
@@ -87,7 +85,7 @@
             // 
             // EnrollStudent_Button
             // 
-            this.EnrollStudent_Button.Location = new System.Drawing.Point(12, 96);
+            this.EnrollStudent_Button.Location = new System.Drawing.Point(45, 96);
             this.EnrollStudent_Button.Name = "EnrollStudent_Button";
             this.EnrollStudent_Button.Size = new System.Drawing.Size(126, 31);
             this.EnrollStudent_Button.TabIndex = 5;
@@ -96,7 +94,7 @@
             // 
             // DropStudent_Button
             // 
-            this.DropStudent_Button.Location = new System.Drawing.Point(12, 133);
+            this.DropStudent_Button.Location = new System.Drawing.Point(45, 133);
             this.DropStudent_Button.Name = "DropStudent_Button";
             this.DropStudent_Button.Size = new System.Drawing.Size(126, 31);
             this.DropStudent_Button.TabIndex = 6;
@@ -105,7 +103,7 @@
             // 
             // Search_Button
             // 
-            this.Search_Button.Location = new System.Drawing.Point(12, 170);
+            this.Search_Button.Location = new System.Drawing.Point(45, 170);
             this.Search_Button.Name = "Search_Button";
             this.Search_Button.Size = new System.Drawing.Size(126, 31);
             this.Search_Button.TabIndex = 7;
