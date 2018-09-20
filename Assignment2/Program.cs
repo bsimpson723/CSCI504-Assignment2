@@ -10,16 +10,19 @@ namespace Assignment2
 {
     static class Program
     {
-        
+        public static List<Course> courses = new List<Course>();
+        public static List<Student> students = new List<Student>();
+        public static List<string> majors = new List<string>();
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            List<Course> courses = InitializeCourses();
-            List<Student> students = InitializeStudents();
-            List<string> majors = InitializeMajors();
+            courses = InitializeCourses();
+            students = InitializeStudents();
+            majors = InitializeMajors();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
