@@ -11,9 +11,9 @@ namespace Assignment2
 {
     static class Program
     {
-        public static BindingList<Course> courses = new BindingList<Course>();
-        public static BindingList<Student> students = new BindingList<Student>();
-        public static BindingList<string> majors = new BindingList<string>();
+        public static BindingList<Course> m_courses = new BindingList<Course>();
+        public static BindingList<Student> m_students = new BindingList<Student>();
+        public static BindingList<string> m_majors = new BindingList<string>();
 
         /// <summary>
         /// The main entry point for the application.
@@ -21,9 +21,9 @@ namespace Assignment2
         [STAThread]
         static void Main()
         {
-            courses = InitializeCourses();
-            students = InitializeStudents();
-            majors = InitializeMajors();
+            m_courses = InitializeCourses();
+            m_students = InitializeStudents();
+            m_majors = InitializeMajors();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());

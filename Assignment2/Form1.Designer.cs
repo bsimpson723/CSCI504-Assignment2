@@ -57,6 +57,8 @@
             this.Student_ListBox.Name = "Student_ListBox";
             this.Student_ListBox.Size = new System.Drawing.Size(192, 433);
             this.Student_ListBox.TabIndex = 1;
+            this.Student_ListBox.DataSource = Program.m_students;
+            this.Student_ListBox.DisplayMember = "StudentInfo";
             // 
             // Course_ListBox
             // 
@@ -65,6 +67,7 @@
             this.Course_ListBox.Name = "Course_ListBox";
             this.Course_ListBox.Size = new System.Drawing.Size(192, 433);
             this.Course_ListBox.TabIndex = 2;
+            this.Course_ListBox.DataSource = Program.m_courses;
             // 
             // Output_TextBox
             // 
