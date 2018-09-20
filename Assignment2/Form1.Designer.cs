@@ -57,6 +57,7 @@
             this.Student_ListBox.Size = new System.Drawing.Size(192, 433);
             this.Student_ListBox.TabIndex = 1;
             this.Student_ListBox.DataSource = Program.students;
+            this.Student_ListBox.DisplayMember = "StudentInfo";
             // 
             // Course_ListBox
             // 

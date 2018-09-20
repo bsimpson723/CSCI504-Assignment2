@@ -26,6 +26,7 @@ namespace Simpson_Assign1
         public string LastName { get; set; }
         public string Major{ get; set; }
         public AcademicYear? Year { get; set; }
+        public string StudentInfo => string.Format("{0} -- {1}, {2}", ZId, LastName, FirstName);
 
         //properties with custom validation defined below
         public float? Gpa
