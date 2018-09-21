@@ -32,7 +32,7 @@ namespace Assignment2
             }
 
             var builder = new StringBuilder();
-            builder.Append(student.ToString());
+            builder.Append(student);
             builder.Append(Environment.NewLine);
             builder.Append("-----------------------------------------------------------------------------------------------------------------------------------");
             builder.Append(Environment.NewLine);
@@ -41,10 +41,47 @@ namespace Assignment2
             {
                 builder.Append("Student is not enrolled in any courses!");
             }
+            else
+            {
+                foreach (var course in studentCourses)
+                {
+                    var courseString = string.Format("{0} {1}-{2}", course.DepartmentCode, course.CourseNumber, course.SectionNumber);
+                    builder.Append(courseString);
+                    builder.Append(Environment.NewLine);
+                }
+            }
+
+            Output_TextBox.Text = builder.ToString();
+        }
+
+        private void PrintCourseClicked(object sender, EventArgs e)
+        {
+            Course course = (Course) Course_ListBox.SelectedValue;
+            var builder = new StringBuilder();
+
+            builder.Append(course);
+            builder.Append(Environment.NewLine);
+            builder.Append("-----------------------------------------------------------------------------------------------------------------------------------");
+            builder.Append(Environment.NewLine);
+
+            if (!course.EnrolledStudents.Any())
+            {
+                builder.Append("There are no students currently enrolled in this course.");
+            }
+            else
+            {
+                foreach (var student in Program.m_students)
+                {
+                    if (course.EnrolledStudents.Contains(student.ZId))
+                    {
+                        var rosterString = string.Format("{0} {1}, {2} {3}", student.ZId, student.LastName, student.FirstName, student.Major);
+                        builder.Append(rosterString);
+                        builder.Append(Environment.NewLine);
+                    }
+                }
+            }
 
             Output_TextBox.Text = builder.ToString();
         }
     }
-
-    
 }
