@@ -88,6 +88,7 @@
             this.PrintRoster_Button.TabIndex = 4;
             this.PrintRoster_Button.Text = "Print Course Roster";
             this.PrintRoster_Button.UseVisualStyleBackColor = true;
+            this.PrintRoster_Button.Click += new System.EventHandler(this.PrintCourseClicked);
             // 
             // EnrollStudent_Button
             // 
