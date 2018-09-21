@@ -1,6 +1,6 @@
 ﻿/*
  * CSCI 504: Programming principles in .NET
- * Assignment 1
+ * Assignment 2
  * Benjamin Simpson - Z100820
  * Xueqiong Li - z1785226
 */
@@ -24,7 +24,7 @@ namespace Simpson_Assign1
         public uint? ZId { get; }    //get only so that this field can only be set once via the constructor
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Major{ get; set; }
+        public string Major { get; set; }
         public AcademicYear? Year { get; set; }
         public string StudentInfo => string.Format("{0} -- {1}, {2}", ZId, LastName, FirstName);
 
@@ -151,7 +151,7 @@ namespace Simpson_Assign1
             {
                 return 1;
             }
-            
+
             //if argument zid is lower it should come out first
             if (ZId > student.ZId)
             {
