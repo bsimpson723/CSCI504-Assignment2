@@ -41,6 +41,15 @@ namespace Assignment2
             {
                 builder.Append("Student is not enrolled in any courses!");
             }
+            else
+            {
+                foreach (var course in studentCourses)
+                {
+                    var courseString = string.Format("{0} {1}-{2}", course.DepartmentCode, course.CourseNumber, course.SectionNumber);
+                    builder.Append(courseString);
+                    builder.Append(Environment.NewLine);
+                }
+            }
 
             Output_TextBox.Text = builder.ToString();
         }
