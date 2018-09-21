@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Title_Lable = new System.Windows.Forms.Label();
             this.Student_ListBox = new System.Windows.Forms.ListBox();
             this.Course_ListBox = new System.Windows.Forms.ListBox();
@@ -59,6 +60,7 @@
             this.Student_ListBox.TabIndex = 1;
             this.Student_ListBox.DataSource = Program.m_students;
             this.Student_ListBox.DisplayMember = "StudentInfo";
+            this.Student_ListBox.SelectedIndexChanged += new System.EventHandler(this.StudentSelected);
             // 
             // Course_ListBox
             // 
