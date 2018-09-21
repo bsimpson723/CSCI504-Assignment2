@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,16 +11,19 @@ namespace Assignment2
 {
     static class Program
     {
-        
+        public static BindingList<Course> m_courses = new BindingList<Course>();
+        public static BindingList<Student> m_students = new BindingList<Student>();
+        public static BindingList<string> m_majors = new BindingList<string>();
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            List<Course> courses = InitializeCourses();
-            List<Student> students = InitializeStudents();
-            List<string> majors = InitializeMajors();
+            m_courses = InitializeCourses();
+            m_students = InitializeStudents();
+            m_majors = InitializeMajors();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
@@ -27,7 +31,7 @@ namespace Assignment2
 
         #region InitializeCourses
         //loads a list of course objects from the input file ordered by department code then course number
-        private static List<Course> InitializeCourses()
+        private static BindingList<Course> InitializeCourses()
         {
             var sortedCourses = new List<Course>();
             // check opening file successfully
@@ -49,13 +53,13 @@ namespace Assignment2
             {
                 Console.WriteLine("Can't read Courses.txt file.");
             }
-
-            return sortedCourses;
+            var bindedCourses = new BindingList<Course>(sortedCourses);
+            return bindedCourses;
         }
         #endregion
         #region InitializeStudents
         //loads a list of student objects from the input file ordered by zID
-        private static List<Student> InitializeStudents()
+        private static BindingList<Student> InitializeStudents()
         {
             var sortedStudents = new List<Student>();
             // check opening file successfully
@@ -76,12 +80,14 @@ namespace Assignment2
                 Console.WriteLine("Can't read Students.txt file.");
                 return null;
             }
-            return sortedStudents;
+
+            var bindedStudents = new BindingList<Student>(sortedStudents);
+            return bindedStudents;
         }
         #endregion
         #region InitializeMajors
         //loads a list of Majors from the input file in alphabetical order
-        private static List<string> InitializeMajors()
+        private static BindingList<string> InitializeMajors()
         {
             var sortedMajors = new List<string>();
             // check opening file successfully
@@ -100,7 +106,9 @@ namespace Assignment2
                 Console.WriteLine("Can't read Students.txt file.");
                 return null;
             }
-            return sortedMajors;
+
+            var bindedMajors = new BindingList<string>(sortedMajors);
+            return bindedMajors;
         }
         #endregion
     }
