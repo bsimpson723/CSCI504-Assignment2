@@ -16,6 +16,7 @@ namespace Assignment2
         public Form1()
         {
             InitializeComponent();
+            LoadData();
         }
 
         private void StudentSelected(object sender, EventArgs e)
@@ -82,6 +83,18 @@ namespace Assignment2
             }
 
             Output_TextBox.Text = builder.ToString();
+        }
+        
+        public void LoadData()
+        {
+            foreach (string mj in Program.m_majors)
+            {
+                AddMajor_ComboBox.Items.Add(mj);
+            }
+            foreach (string ay in Program.m_years)
+            {
+                AddYear_ComboBox.Items.Add(ay);
+            }
         }
         
                 private void AddStudent_Button_Click(object sender, EventArgs e)
