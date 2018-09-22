@@ -117,6 +117,7 @@
             this.EnrollStudent_Button.TabIndex = 5;
             this.EnrollStudent_Button.Text = "Enroll Student";
             this.EnrollStudent_Button.UseVisualStyleBackColor = true;
+            this.EnrollStudent_Button.Click += new System.EventHandler(this.EnrollStudent_Button_Click);
             // 
             // DropStudent_Button
             // 
@@ -126,6 +127,7 @@
             this.DropStudent_Button.TabIndex = 6;
             this.DropStudent_Button.Text = "Drop Student";
             this.DropStudent_Button.UseVisualStyleBackColor = true;
+            this.DropStudent_Button.Click += new System.EventHandler(this.DropStudent_Button_Click);
             // 
             // Search_Button
             // 
