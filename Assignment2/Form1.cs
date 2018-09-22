@@ -186,5 +186,45 @@ namespace Assignment2
             Program.m_courses.Add(new Course(Dept, crs, sect, null, capc));
             Output_TextBox.Text = "1 course added.";
         }
+        
+        private void EnrollStudent_Button_Click(object sender, EventArgs e)
+        {
+            if(Student_ListBox.SelectedIndex == -1)
+            {
+                Output_TextBox.Text = "Please select a student to enroll!";
+                return;
+            }
+            Student student = (Student) Student_ListBox.SelectedItem;
+
+            if (Course_ListBox.SelectedIndex == -1)
+            {
+                Output_TextBox.Text = "Please select a course to enroll!";
+                return;
+            }
+            Course course = (Course) Course_ListBox.SelectedItem;
+
+            student.Enroll(course);
+            Output_TextBox.Text = "Student z" + student.ZId + " successfully enrolled the course " + course.ToString() + ".";
+        }
+        
+         private void DropStudent_Button_Click(object sender, EventArgs e)
+        {
+            if (Student_ListBox.SelectedIndex == -1)
+            {
+                Output_TextBox.Text = "Please select a student to drop!";
+                return;
+            }
+            Student student = (Student)Student_ListBox.SelectedItem;
+
+            if (Course_ListBox.SelectedIndex == -1)
+            {
+                Output_TextBox.Text = "Please select a course to drop!";
+                return;
+            }
+            Course course = (Course)Course_ListBox.SelectedItem;
+
+            student.Drop(course);
+            Output_TextBox.Text = "Student z" + student.ZId + " successfully dropped the course " + course.ToString() + ".";
+        }
     }
 }
