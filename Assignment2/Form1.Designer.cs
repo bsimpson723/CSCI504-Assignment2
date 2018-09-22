@@ -184,8 +184,12 @@
             this.AddMajor_ComboBox.Name = "AddMajor_ComboBox";
             this.AddMajor_ComboBox.Size = new System.Drawing.Size(126, 21);
             this.AddMajor_ComboBox.TabIndex = 14;
-            this.AddMajor_ComboBox.DataSource = Program.m_majors;
             this.AddMajor_ComboBox.SelectedIndex = -1;
+            this.AddMajor_ComboBox.Text = "Select Major";
+            foreach (string mj in Program.m_majors)
+            {
+                this.AddMajor_ComboBox.Items.Add(mj);
+            }
             // 
             // AddYear_ComboBox
             // 
@@ -194,8 +198,12 @@
             this.AddYear_ComboBox.Name = "AddYear_ComboBox";
             this.AddYear_ComboBox.Size = new System.Drawing.Size(126, 21);
             this.AddYear_ComboBox.TabIndex = 15;
-            this.AddYear_ComboBox.DataSource = Program.m_years;
             this.AddYear_ComboBox.SelectedIndex = -1;
+            this.AddYear_ComboBox.Text = "Select Academic Year";
+            foreach (string ay in Program.m_years)
+            {
+                this.AddYear_ComboBox.Items.Add(ay);
+            }
             // 
             // AddStudent_Button
             // 
