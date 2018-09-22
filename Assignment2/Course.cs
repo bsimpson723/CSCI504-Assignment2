@@ -97,7 +97,7 @@ namespace Simpson_Assign1
             MaximumCapacity = null;
         }
 
-        public Course(string deptCode, uint courseNum, string sectNumber, ushort hours, ushort capacity)
+        public Course(string deptCode, uint courseNum, string sectNumber, ushort? hours, ushort capacity)
         {
             DepartmentCode = deptCode.ToUpper();
             CourseNumber = courseNum;
