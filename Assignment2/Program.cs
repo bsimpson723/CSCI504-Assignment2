@@ -14,6 +14,7 @@ namespace Assignment2
         public static BindingList<Course> m_courses = new BindingList<Course>();
         public static BindingList<Student> m_students = new BindingList<Student>();
         public static BindingList<string> m_majors = new BindingList<string>();
+        public static BindingList<string> m_years = new BindingList<string>(Enum.GetNames(typeof(AcademicYear)));
 
         /// <summary>
         /// The main entry point for the application.
