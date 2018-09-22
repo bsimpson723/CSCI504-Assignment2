@@ -72,7 +72,7 @@ namespace Simpson_Assign1
         }
 
         public Student(uint zid, string lastName, string firstName,
-            string major, int year, float gpa)
+            string major, int year, float? gpa)
         {
             if (zid >= 1000000)
             {
