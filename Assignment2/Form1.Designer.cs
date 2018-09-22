@@ -37,6 +37,15 @@
             this.EnrollStudent_Button = new System.Windows.Forms.Button();
             this.DropStudent_Button = new System.Windows.Forms.Button();
             this.Search_Button = new System.Windows.Forms.Button();
+            this.AddName_Label = new System.Windows.Forms.Label();
+            this.AddName_TextBox = new System.Windows.Forms.TextBox();
+            this.AddZid_TextBox = new System.Windows.Forms.TextBox();
+            this.AddZid_Label = new System.Windows.Forms.Label();
+            this.AddYear_Label = new System.Windows.Forms.Label();
+            this.AddMajor_Label = new System.Windows.Forms.Label();
+            this.AddMajor_ComboBox = new System.Windows.Forms.ComboBox();
+            this.AddYear_ComboBox = new System.Windows.Forms.ComboBox();
+            this.AddStudent_Button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Title_Lable
@@ -117,11 +126,101 @@
             this.Search_Button.Text = "Apply Search Criteria";
             this.Search_Button.UseVisualStyleBackColor = true;
             // 
+            // AddName_Label
+            // 
+            this.AddName_Label.AutoSize = true;
+            this.AddName_Label.Location = new System.Drawing.Point(42, 232);
+            this.AddName_Label.Name = "AddName_Label";
+            this.AddName_Label.Size = new System.Drawing.Size(114, 13);
+            this.AddName_Label.TabIndex = 8;
+            this.AddName_Label.Text = "Last Name, First Name";
+            // 
+            // AddName_TextBox
+            // 
+            this.AddName_TextBox.Location = new System.Drawing.Point(45, 248);
+            this.AddName_TextBox.Name = "AddName_TextBox";
+            this.AddName_TextBox.Size = new System.Drawing.Size(126, 20);
+            this.AddName_TextBox.TabIndex = 9;
+            // 
+            // AddZid_TextBox
+            // 
+            this.AddZid_TextBox.Location = new System.Drawing.Point(182, 248);
+            this.AddZid_TextBox.Name = "AddZid_TextBox";
+            this.AddZid_TextBox.Size = new System.Drawing.Size(126, 20);
+            this.AddZid_TextBox.TabIndex = 11;
+            // 
+            // AddZid_Label
+            // 
+            this.AddZid_Label.AutoSize = true;
+            this.AddZid_Label.Location = new System.Drawing.Point(179, 232);
+            this.AddZid_Label.Name = "AddZid_Label";
+            this.AddZid_Label.Size = new System.Drawing.Size(28, 13);
+            this.AddZid_Label.TabIndex = 10;
+            this.AddZid_Label.Text = "Z-ID";
+            // 
+            // AddYear_Label
+            // 
+            this.AddYear_Label.AutoSize = true;
+            this.AddYear_Label.Location = new System.Drawing.Point(179, 272);
+            this.AddYear_Label.Name = "AddYear_Label";
+            this.AddYear_Label.Size = new System.Drawing.Size(79, 13);
+            this.AddYear_Label.TabIndex = 13;
+            this.AddYear_Label.Text = "Academic Year";
+            // 
+            // AddMajor_Label
+            // 
+            this.AddMajor_Label.AutoSize = true;
+            this.AddMajor_Label.Location = new System.Drawing.Point(42, 272);
+            this.AddMajor_Label.Name = "AddMajor_Label";
+            this.AddMajor_Label.Size = new System.Drawing.Size(33, 13);
+            this.AddMajor_Label.TabIndex = 12;
+            this.AddMajor_Label.Text = "Major";
+            // 
+            // AddMajor_ComboBox
+            // 
+            this.AddMajor_ComboBox.AllowDrop = true;
+            this.AddMajor_ComboBox.FormattingEnabled = true;
+            this.AddMajor_ComboBox.Location = new System.Drawing.Point(45, 288);
+            this.AddMajor_ComboBox.Name = "AddMajor_ComboBox";
+            this.AddMajor_ComboBox.Size = new System.Drawing.Size(126, 21);
+            this.AddMajor_ComboBox.TabIndex = 14;
+            this.AddMajor_ComboBox.DataSource = Program.m_majors;
+            this.AddMajor_ComboBox.SelectedIndex = -1;
+            // 
+            // AddYear_ComboBox
+            // 
+            this.AddYear_ComboBox.FormattingEnabled = true;
+            this.AddYear_ComboBox.Location = new System.Drawing.Point(182, 288);
+            this.AddYear_ComboBox.Name = "AddYear_ComboBox";
+            this.AddYear_ComboBox.Size = new System.Drawing.Size(126, 21);
+            this.AddYear_ComboBox.TabIndex = 15;
+            this.AddYear_ComboBox.DataSource = Program.m_years;
+            this.AddYear_ComboBox.SelectedIndex = -1;
+            // 
+            // AddStudent_Button
+            // 
+            this.AddStudent_Button.Location = new System.Drawing.Point(45, 315);
+            this.AddStudent_Button.Name = "AddStudent_Button";
+            this.AddStudent_Button.Size = new System.Drawing.Size(98, 24);
+            this.AddStudent_Button.TabIndex = 16;
+            this.AddStudent_Button.Text = "Add Student";
+            this.AddStudent_Button.UseVisualStyleBackColor = true;
+            this.AddStudent_Button.Click += new System.EventHandler(this.AddStudent_Button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1013, 656);
+            this.Controls.Add(this.AddStudent_Button);
+            this.Controls.Add(this.AddYear_ComboBox);
+            this.Controls.Add(this.AddMajor_ComboBox);
+            this.Controls.Add(this.AddYear_Label);
+            this.Controls.Add(this.AddMajor_Label);
+            this.Controls.Add(this.AddZid_TextBox);
+            this.Controls.Add(this.AddZid_Label);
+            this.Controls.Add(this.AddName_TextBox);
+            this.Controls.Add(this.AddName_Label);
             this.Controls.Add(this.Search_Button);
             this.Controls.Add(this.DropStudent_Button);
             this.Controls.Add(this.EnrollStudent_Button);
@@ -147,6 +246,15 @@
         private System.Windows.Forms.Button EnrollStudent_Button;
         private System.Windows.Forms.Button DropStudent_Button;
         private System.Windows.Forms.Button Search_Button;
+        private System.Windows.Forms.Label AddName_Label;
+        private System.Windows.Forms.TextBox AddName_TextBox;
+        private System.Windows.Forms.TextBox AddZid_TextBox;
+        private System.Windows.Forms.Label AddZid_Label;
+        private System.Windows.Forms.Label AddYear_Label;
+        private System.Windows.Forms.Label AddMajor_Label;
+        private System.Windows.Forms.ComboBox AddMajor_ComboBox;
+        private System.Windows.Forms.ComboBox AddYear_ComboBox;
+        private System.Windows.Forms.Button AddStudent_Button;
     }
 }
 

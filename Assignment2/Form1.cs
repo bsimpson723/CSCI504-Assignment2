@@ -83,5 +83,56 @@ namespace Assignment2
 
             Output_TextBox.Text = builder.ToString();
         }
+        
+                private void AddStudent_Button_Click(object sender, EventArgs e)
+        {
+            string lastName = "";
+            string firstName = "";
+            string name = AddName_TextBox.Text.ToLower();
+            string zid = AddZid_TextBox.Text.ToLower();
+            string major = (string)AddMajor_ComboBox.SelectedItem;
+            int year = AddYear_ComboBox.SelectedIndex;
+
+            if (name.Contains(","))
+            {
+                var name2 = name.Split(',');
+                name2[0].Replace(" ", "");
+                name2[1].Replace(" ", "");
+                lastName = name2[0].First().ToString().ToUpper() + name2[0].Substring(1);
+                firstName = name2[1].First().ToString().ToUpper() + name2[1].Substring(1);
+
+            }
+            else
+            {
+                Output_TextBox.Text = "Please separate student's last and first name with comma!";
+                return;
+            }
+
+            if (zid[0] == 'z')
+            {
+                zid = zid.Substring(1);
+            }
+            uint zidNum = 0;
+            if(!uint.TryParse(zid, out zidNum) || zid.Length != 7 )
+            {
+                Output_TextBox.Text = "Please enter seven digits Z-ID!";
+                return;
+            }
+
+            if(AddMajor_ComboBox.SelectedIndex == -1)
+            {
+                Output_TextBox.Text = "Please select a major!";
+                return;
+            }
+
+            if (AddYear_ComboBox.SelectedIndex == -1)
+            {
+                Output_TextBox.Text = "Please select an academic year!";
+                return;
+            }
+
+            Program.m_students.Add(new Student(zidNum, lastName, firstName, major, year, 0));
+            Output_TextBox.Text = "1 student added.";
+        }
     }
 }
