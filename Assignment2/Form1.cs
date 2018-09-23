@@ -211,6 +211,8 @@ namespace Assignment2
 
             student.Enroll(course);
             Output_TextBox.Text = "Student z" + student.ZId + " successfully enrolled the course " + course.ToString() + ".";
+            
+            Program.m_courses.ResetBindings();
         }
         
          private void DropStudent_Button_Click(object sender, EventArgs e)
@@ -237,6 +239,8 @@ namespace Assignment2
 
             student.Drop(course);
             Output_TextBox.Text = "Student z" + student.ZId + " successfully dropped the course " + course.ToString() + ".";
+            
+            Program.m_courses.ResetBindings();
         }
     }
 }
