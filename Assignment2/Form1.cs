@@ -88,6 +88,9 @@ namespace Assignment2
 
         public void LoadData()
         {
+            Course_ListBox.DataSource = Program.m_courses;
+            Student_ListBox.DataSource = Program.m_students;
+
             foreach (string mj in Program.m_majors)
             {
                 AddMajor_ComboBox.Items.Add(mj);
@@ -200,8 +203,25 @@ namespace Assignment2
             }
             Course course = (Course) Course_ListBox.SelectedItem;
 
-            student.Enroll(course);
-            Output_TextBox.Text = "Student z" + student.ZId + " successfully enrolled the course " + course.ToString() + ".";
+            var response = student.Enroll(course);
+            var output = string.Empty;
+            switch (response)
+            {
+                case 0:
+                    output = string.Format("Student z{0} successfully enrolled in course {1}, {2}-{3}.", student.ZId, course.DepartmentCode, course.CourseNumber, course.SectionNumber);
+                    break;
+                case 5:
+                    output = string.Format("Error: {0} {1}-{2} is already at maximum capacity.", course.DepartmentCode, course.CourseNumber, course.SectionNumber);
+                    break;
+                case 10:
+                    output = string.Format("Error: z{0} is already enrolled in {1} {2}-{3}.", student.ZId, course.DepartmentCode, course.CourseNumber, course.SectionNumber);
+                    break;
+                case 15:
+                    output = string.Format("Error: z{0} already has a full schedule.", student.ZId);
+                    break;
+            }
+
+            Output_TextBox.Text = output;
         }
         
          private void DropStudent_Button_Click(object sender, EventArgs e)
@@ -220,8 +240,18 @@ namespace Assignment2
             }
             Course course = (Course)Course_ListBox.SelectedItem;
 
-            student.Drop(course);
-            Output_TextBox.Text = "Student z" + student.ZId + " successfully dropped the course " + course.ToString() + ".";
+            var response = student.Drop(course);
+            var output = string.Empty;
+            if (response == 0)
+            {
+                output = string.Format("Student z{0} successfully dropped from {1} {2}-{3}.", student.ZId, course.DepartmentCode, course.CourseNumber, course.SectionNumber);
+            }
+            else
+            {
+                output = string.Format("Error: z{0} is not currently enrolled in {1} {2}-{3}.", student.ZId, course.DepartmentCode, course.CourseNumber, course.SectionNumber);
+            }
+
+            Output_TextBox.Text = output;
         }
     }
 }

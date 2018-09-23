@@ -81,7 +81,6 @@
             this.Student_ListBox.Size = new System.Drawing.Size(192, 433);
             this.Student_ListBox.Sorted = true;
             this.Student_ListBox.TabIndex = 1;
-            this.Student_ListBox.DataSource = Program.m_students;
             this.Student_ListBox.SelectedIndexChanged += new System.EventHandler(this.StudentSelected);
             // 
             // Course_ListBox
@@ -92,7 +91,6 @@
             this.Course_ListBox.Size = new System.Drawing.Size(192, 433);
             this.Course_ListBox.Sorted = true;
             this.Course_ListBox.TabIndex = 2;
-            this.Course_ListBox.DataSource = Program.m_courses;
             // 
             // Output_TextBox
             // 
@@ -162,7 +160,7 @@
             // 
             this.AddZid_TextBox.Location = new System.Drawing.Point(182, 248);
             this.AddZid_TextBox.Name = "AddZid_TextBox";
-            this.AddZid_TextBox.Size = new System.Drawing.Size(126, 20);
+            this.AddZid_TextBox.Size = new System.Drawing.Size(144, 20);
             this.AddZid_TextBox.TabIndex = 11;
             // 
             // AddZid_Label
@@ -200,16 +198,16 @@
             this.AddMajor_ComboBox.Name = "AddMajor_ComboBox";
             this.AddMajor_ComboBox.Size = new System.Drawing.Size(126, 21);
             this.AddMajor_ComboBox.TabIndex = 14;
-            this.AddMajor_ComboBox.Text = "Select Major";
+            this.AddMajor_ComboBox.Text = "--Select Major--";
             // 
             // AddYear_ComboBox
             // 
             this.AddYear_ComboBox.FormattingEnabled = true;
             this.AddYear_ComboBox.Location = new System.Drawing.Point(182, 288);
             this.AddYear_ComboBox.Name = "AddYear_ComboBox";
-            this.AddYear_ComboBox.Size = new System.Drawing.Size(126, 21);
+            this.AddYear_ComboBox.Size = new System.Drawing.Size(144, 21);
             this.AddYear_ComboBox.TabIndex = 15;
-            this.AddYear_ComboBox.Text = "Select Academic Year";
+            this.AddYear_ComboBox.Text = "--Select Academic Year--";
             // 
             // AddStudent_Button
             // 
@@ -311,7 +309,7 @@
             // 
             this.searchStudent_TextBox.Location = new System.Drawing.Point(182, 75);
             this.searchStudent_TextBox.Name = "searchStudent_TextBox";
-            this.searchStudent_TextBox.Size = new System.Drawing.Size(126, 20);
+            this.searchStudent_TextBox.Size = new System.Drawing.Size(144, 20);
             this.searchStudent_TextBox.TabIndex = 28;
             // 
             // FilterCourse_Label
@@ -327,7 +325,7 @@
             // 
             this.FilterCourse_TextBox.Location = new System.Drawing.Point(182, 121);
             this.FilterCourse_TextBox.Name = "FilterCourse_TextBox";
-            this.FilterCourse_TextBox.Size = new System.Drawing.Size(126, 20);
+            this.FilterCourse_TextBox.Size = new System.Drawing.Size(144, 20);
             this.FilterCourse_TextBox.TabIndex = 30;
             // 
             // Form1
