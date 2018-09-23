@@ -88,9 +88,6 @@ namespace Assignment2
 
         public void LoadData()
         {
-            Student_ListBox.DataSource = Program.m_students;
-            Course_ListBox.DataSource = Program.m_courses;
-
             foreach (string mj in Program.m_majors)
             {
                 AddMajor_ComboBox.Items.Add(mj);
@@ -174,7 +171,7 @@ namespace Assignment2
             }
             uint crs = Convert.ToUInt32(AddCourse_TextBox.Text);
 
-            if (!AddSection_TextBox.Text.All(c => Char.IsLetterOrDigit(c)))
+            if (!AddSection_TextBox.Text.All(c => Char.IsLetterOrDigit(c)) || AddSection_TextBox.Text.Length < 4)
             {
                 Output_TextBox.Text = "Please provide a valid 4 alphannumeric section number!";
                 return;

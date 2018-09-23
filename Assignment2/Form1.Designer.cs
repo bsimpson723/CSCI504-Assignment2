@@ -81,6 +81,7 @@
             this.Student_ListBox.Size = new System.Drawing.Size(192, 433);
             this.Student_ListBox.Sorted = true;
             this.Student_ListBox.TabIndex = 1;
+            this.Student_ListBox.DataSource = Program.m_students;
             this.Student_ListBox.SelectedIndexChanged += new System.EventHandler(this.StudentSelected);
             // 
             // Course_ListBox
@@ -91,6 +92,7 @@
             this.Course_ListBox.Size = new System.Drawing.Size(192, 433);
             this.Course_ListBox.Sorted = true;
             this.Course_ListBox.TabIndex = 2;
+            this.Course_ListBox.DataSource = Program.m_courses;
             // 
             // Output_TextBox
             // 
