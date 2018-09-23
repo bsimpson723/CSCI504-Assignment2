@@ -202,6 +202,12 @@ namespace Assignment2
                 return;
             }
             Course course = (Course) Course_ListBox.SelectedItem;
+            
+            if (course.EnrolledStudents.Contains(student.ZId))
+            {
+                Output_TextBox.Text = "Student " + student.ZId + " already enrolled " + course.ToString();
+                return;
+            }
 
             student.Enroll(course);
             Output_TextBox.Text = "Student z" + student.ZId + " successfully enrolled the course " + course.ToString() + ".";
@@ -222,6 +228,12 @@ namespace Assignment2
                 return;
             }
             Course course = (Course)Course_ListBox.SelectedItem;
+            
+            if (!course.EnrolledStudents.Contains(student.ZId))
+            {
+                Output_TextBox.Text = "Student " + student.ZId + " haven't enrolled " + course.ToString();
+                return;
+            }
 
             student.Drop(course);
             Output_TextBox.Text = "Student z" + student.ZId + " successfully dropped the course " + course.ToString() + ".";
