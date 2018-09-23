@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Title_Lable = new System.Windows.Forms.Label();
             this.Student_ListBox = new System.Windows.Forms.ListBox();
             this.Course_ListBox = new System.Windows.Forms.ListBox();
@@ -55,6 +54,10 @@
             this.AddDept_ComboBox = new System.Windows.Forms.ComboBox();
             this.AddCourse_Button = new System.Windows.Forms.Button();
             this.AddCapacity_NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.SearchStudent_Label = new System.Windows.Forms.Label();
+            this.searchStudent_TextBox = new System.Windows.Forms.TextBox();
+            this.FilterCourse_Label = new System.Windows.Forms.Label();
+            this.FilterCourse_TextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.AddCapacity_NumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,9 +79,8 @@
             this.Student_ListBox.Location = new System.Drawing.Point(565, 59);
             this.Student_ListBox.Name = "Student_ListBox";
             this.Student_ListBox.Size = new System.Drawing.Size(192, 433);
+            this.Student_ListBox.Sorted = true;
             this.Student_ListBox.TabIndex = 1;
-            this.Student_ListBox.DataSource = Program.m_students;
-            this.Student_ListBox.DisplayMember = "StudentInfo";
             this.Student_ListBox.SelectedIndexChanged += new System.EventHandler(this.StudentSelected);
             // 
             // Course_ListBox
@@ -87,8 +89,8 @@
             this.Course_ListBox.Location = new System.Drawing.Point(772, 59);
             this.Course_ListBox.Name = "Course_ListBox";
             this.Course_ListBox.Size = new System.Drawing.Size(192, 433);
+            this.Course_ListBox.Sorted = true;
             this.Course_ListBox.TabIndex = 2;
-            this.Course_ListBox.DataSource = Program.m_courses;
             // 
             // Output_TextBox
             // 
@@ -196,7 +198,6 @@
             this.AddMajor_ComboBox.Name = "AddMajor_ComboBox";
             this.AddMajor_ComboBox.Size = new System.Drawing.Size(126, 21);
             this.AddMajor_ComboBox.TabIndex = 14;
-            this.AddMajor_ComboBox.SelectedIndex = -1;
             this.AddMajor_ComboBox.Text = "Select Major";
             // 
             // AddYear_ComboBox
@@ -206,7 +207,6 @@
             this.AddYear_ComboBox.Name = "AddYear_ComboBox";
             this.AddYear_ComboBox.Size = new System.Drawing.Size(126, 21);
             this.AddYear_ComboBox.TabIndex = 15;
-            this.AddYear_ComboBox.SelectedIndex = -1;
             this.AddYear_ComboBox.Text = "Select Academic Year";
             // 
             // AddStudent_Button
@@ -296,11 +296,47 @@
             this.AddCapacity_NumericUpDown.TabIndex = 26;
             this.AddCapacity_NumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // SearchStudent_Label
+            // 
+            this.SearchStudent_Label.AutoSize = true;
+            this.SearchStudent_Label.Location = new System.Drawing.Point(179, 59);
+            this.SearchStudent_Label.Name = "SearchStudent_Label";
+            this.SearchStudent_Label.Size = new System.Drawing.Size(125, 13);
+            this.SearchStudent_Label.TabIndex = 27;
+            this.SearchStudent_Label.Text = "Search Student (by Z-ID)";
+            // 
+            // searchStudent_TextBox
+            // 
+            this.searchStudent_TextBox.Location = new System.Drawing.Point(182, 75);
+            this.searchStudent_TextBox.Name = "searchStudent_TextBox";
+            this.searchStudent_TextBox.Size = new System.Drawing.Size(126, 20);
+            this.searchStudent_TextBox.TabIndex = 28;
+            // 
+            // FilterCourse_Label
+            // 
+            this.FilterCourse_Label.AutoSize = true;
+            this.FilterCourse_Label.Location = new System.Drawing.Point(179, 105);
+            this.FilterCourse_Label.Name = "FilterCourse_Label";
+            this.FilterCourse_Label.Size = new System.Drawing.Size(111, 13);
+            this.FilterCourse_Label.TabIndex = 29;
+            this.FilterCourse_Label.Text = "Filter Course (by Dept)";
+            // 
+            // FilterCourse_TextBox
+            // 
+            this.FilterCourse_TextBox.Location = new System.Drawing.Point(182, 121);
+            this.FilterCourse_TextBox.Name = "FilterCourse_TextBox";
+            this.FilterCourse_TextBox.Size = new System.Drawing.Size(126, 20);
+            this.FilterCourse_TextBox.TabIndex = 30;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1013, 656);
+            this.Controls.Add(this.FilterCourse_TextBox);
+            this.Controls.Add(this.FilterCourse_Label);
+            this.Controls.Add(this.searchStudent_TextBox);
+            this.Controls.Add(this.SearchStudent_Label);
             this.Controls.Add(this.AddCapacity_NumericUpDown);
             this.Controls.Add(this.AddCourse_Button);
             this.Controls.Add(this.AddDept_ComboBox);
@@ -363,6 +399,10 @@
         private System.Windows.Forms.ComboBox AddDept_ComboBox;
         private System.Windows.Forms.Button AddCourse_Button;
         private System.Windows.Forms.NumericUpDown AddCapacity_NumericUpDown;
+        private System.Windows.Forms.Label SearchStudent_Label;
+        private System.Windows.Forms.TextBox searchStudent_TextBox;
+        private System.Windows.Forms.Label FilterCourse_Label;
+        private System.Windows.Forms.TextBox FilterCourse_TextBox;
     }
 }
 
