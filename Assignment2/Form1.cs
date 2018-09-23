@@ -172,7 +172,7 @@ namespace Assignment2
                 Output_TextBox.Text = "Please provide a valid 3 digits course number!";
                 return;
             }
-            uint crs = Convert.ToUInt32(AddCourse_TextBox.Text);
+            int crs = Int32.Parse(AddCourse_TextBox.Text);
 
             if (!AddSection_TextBox.Text.All(c => Char.IsLetterOrDigit(c)))
             {
@@ -183,7 +183,7 @@ namespace Assignment2
 
             ushort capc = (ushort) AddCapacity_NumericUpDown.Value;
 
-            Program.m_courses.Add(new Course(Dept, crs, sect, null, capc));
+            Program.m_courses.Add(new Course(Dept, (uint)crs, sect, null, capc));
             Output_TextBox.Text = "1 course added.";
         }
         
