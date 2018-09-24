@@ -139,6 +139,7 @@
             this.Search_Button.TabIndex = 7;
             this.Search_Button.Text = "Apply Search Criteria";
             this.Search_Button.UseVisualStyleBackColor = true;
+            this.Search_Button.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // AddName_Label
             // 
@@ -276,7 +277,8 @@
             this.AddDept_ComboBox.Name = "AddDept_ComboBox";
             this.AddDept_ComboBox.Size = new System.Drawing.Size(126, 21);
             this.AddDept_ComboBox.TabIndex = 23;
-            this.AddDept_ComboBox.Text = "Select Department";
+            this.AddDept_ComboBox.Text = "--Select Department--" +
+                                         "";
             // 
             // AddCourse_Button
             // 

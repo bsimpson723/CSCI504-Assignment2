@@ -106,6 +106,8 @@ namespace Assignment2
                 if(!AddDept_ComboBox.Items.Contains(crs.DepartmentCode))
                     AddDept_ComboBox.Items.Add(crs.DepartmentCode);
             }
+
+            Output_TextBox.Text = null;
         }
 
         private void AddStudent_Button_Click(object sender, EventArgs e)
@@ -252,6 +254,39 @@ namespace Assignment2
             }
 
             Output_TextBox.Text = output;
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            var input = searchStudent_TextBox.Text;
+            if (input.Length > 0)
+            {
+                if (input[0] == 'z')
+                {
+                    input = input.Substring(1);
+                }
+                uint zID = 0;
+                if (input.All(x => char.IsDigit(x)))
+                {
+                    zID = Convert.ToUInt32(input);
+                }
+                else
+                {
+                    Output_TextBox.Text = "Please enter a valid Z-ID";
+                    return;
+                }
+                List<Student> studentList = Program.m_students.ToList();
+                List<Student> filteredStudents = studentList.FindAll(x => x.ZId == zID);
+                BindingList<Student> bindedStudents = new BindingList<Student>(filteredStudents);
+                if (bindedStudents.Any())
+                {
+                    Student_ListBox.DataSource = bindedStudents;
+                }
+                else
+                {
+                    Student_ListBox.DataSource = Program.m_students;
+                }
+            }
         }
     }
 }
