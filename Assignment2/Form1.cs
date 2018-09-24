@@ -157,8 +157,17 @@ namespace Assignment2
                 return;
             }
 
-            Program.m_students.Add(new Student(zidNum, lastName, firstName, major, year, null));
-            Output_TextBox.Text = "1 student added.";
+            if (Program.m_students.Any(x => x.ZId == zidNum))
+            {
+                var outputText = string.Format("Error: A student with Z - ID '{0}' already exists", zidNum);
+                Output_TextBox.Text = outputText;
+            }
+            else
+            {
+                Program.m_students.Add(new Student(zidNum, lastName, firstName, major, year, null));
+                Output_TextBox.Text = "1 student added.";
+            }
+            
         }
 
         private void AddCourse_Button_Click(object sender, EventArgs e)
