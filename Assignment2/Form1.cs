@@ -267,13 +267,29 @@ namespace Assignment2
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            //If zID input is empty assign original list to listbox and return from function
-            if (searchStudent_TextBox.Text.Length == 0)
+            Student_ListBox.DataSource = Program.m_students;
+            Course_ListBox.DataSource = Program.m_courses;
+            Output_TextBox.Text = "";
+
+            //If zID and course input are both empty assign original list to listbox and return from function
+            if (searchStudent_TextBox.Text.Length == 0 && FilterCourse_TextBox.Text.Length == 0)
             {
-                Student_ListBox.DataSource = Program.m_students;
+                Output_TextBox.Text = "Error: No search criteria hase been provided.";
                 return;
             }
 
+            if (searchStudent_TextBox.Text.Length > 0)
+            {
+               FilterStudents();
+            }
+            if (FilterCourse_TextBox.Text.Length > 0)
+            {
+                FilterCourses();
+            }
+        }
+
+        private void FilterStudents()
+        {
             //if user added the z at the beginning strip it
             var input = searchStudent_TextBox.Text;
             if (input[0] == 'z')
@@ -284,15 +300,16 @@ namespace Assignment2
             //if any characters after the leading z is stripped are not a digit then throw an error and return
             if (!input.All(x => char.IsDigit(x)))
             {
-                Output_TextBox.Text = "Error: Please enter a valid Z-ID";
+                Output_TextBox.Text = "Error: Please enter a valid Z-ID\n";
+                Output_TextBox.AppendText(Environment.NewLine);
                 return;
             }
-
             //Now we actually filter the list
             var zID = Convert.ToUInt32(input);
             List<Student> studentList = Program.m_students.ToList();
             List<Student> filteredStudents = studentList.FindAll(x => x.ZId == zID);
             BindingList<Student> bindedStudents = new BindingList<Student>(filteredStudents);
+
             if (bindedStudents.Any())
             {
                 Student_ListBox.DataSource = bindedStudents;
@@ -300,7 +317,33 @@ namespace Assignment2
             else
             {
                 Student_ListBox.DataSource = Program.m_students;
-                Output_TextBox.Text = "No students with that Z-ID were found.";
+                Output_TextBox.Text = "No students with that Z-ID were found.\n";
+                Output_TextBox.AppendText(Environment.NewLine);
+            }
+        }
+
+        private void FilterCourses()
+        {
+            var departmentCode = FilterCourse_TextBox.Text;
+            if (!AddDept_ComboBox.Items.Contains(departmentCode))
+            {
+                Output_TextBox.AppendText(Environment.NewLine);
+                Output_TextBox.Text += "Error: Please enter a valid department code.";
+                return;
+            }
+
+            List<Course> courses = Program.m_courses.ToList();
+            List<Course> filteredCourses = courses.FindAll(x => x.DepartmentCode == departmentCode);
+            BindingList<Course> bindedCourses = new BindingList<Course>(filteredCourses);
+
+            if (bindedCourses.Any())
+            {
+                Course_ListBox.DataSource = bindedCourses;
+            }
+            else
+            {
+                Course_ListBox.DataSource = Program.m_courses;
+                Output_TextBox.Text += "No courses with that department code were found.";
             }
         }
     }

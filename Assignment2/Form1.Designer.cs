@@ -31,7 +31,6 @@
             this.Title_Lable = new System.Windows.Forms.Label();
             this.Student_ListBox = new System.Windows.Forms.ListBox();
             this.Course_ListBox = new System.Windows.Forms.ListBox();
-            this.Output_TextBox = new System.Windows.Forms.TextBox();
             this.PrintRoster_Button = new System.Windows.Forms.Button();
             this.EnrollStudent_Button = new System.Windows.Forms.Button();
             this.DropStudent_Button = new System.Windows.Forms.Button();
@@ -58,6 +57,7 @@
             this.searchStudent_TextBox = new System.Windows.Forms.TextBox();
             this.FilterCourse_Label = new System.Windows.Forms.Label();
             this.FilterCourse_TextBox = new System.Windows.Forms.TextBox();
+            this.Output_TextBox = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.AddCapacity_NumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,15 +91,6 @@
             this.Course_ListBox.Size = new System.Drawing.Size(192, 433);
             this.Course_ListBox.Sorted = true;
             this.Course_ListBox.TabIndex = 2;
-            // 
-            // Output_TextBox
-            // 
-            this.Output_TextBox.Location = new System.Drawing.Point(45, 512);
-            this.Output_TextBox.Multiline = true;
-            this.Output_TextBox.Name = "Output_TextBox";
-            this.Output_TextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.Output_TextBox.Size = new System.Drawing.Size(919, 132);
-            this.Output_TextBox.TabIndex = 3;
             // 
             // PrintRoster_Button
             // 
@@ -277,8 +268,7 @@
             this.AddDept_ComboBox.Name = "AddDept_ComboBox";
             this.AddDept_ComboBox.Size = new System.Drawing.Size(126, 21);
             this.AddDept_ComboBox.TabIndex = 23;
-            this.AddDept_ComboBox.Text = "--Select Department--" +
-                                         "";
+            this.AddDept_ComboBox.Text = "--Select Department--";
             // 
             // AddCourse_Button
             // 
@@ -330,11 +320,20 @@
             this.FilterCourse_TextBox.Size = new System.Drawing.Size(144, 20);
             this.FilterCourse_TextBox.TabIndex = 30;
             // 
+            // Output_TextBox
+            // 
+            this.Output_TextBox.Location = new System.Drawing.Point(45, 512);
+            this.Output_TextBox.Name = "Output_TextBox";
+            this.Output_TextBox.Size = new System.Drawing.Size(919, 132);
+            this.Output_TextBox.TabIndex = 31;
+            this.Output_TextBox.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1013, 656);
+            this.Controls.Add(this.Output_TextBox);
             this.Controls.Add(this.FilterCourse_TextBox);
             this.Controls.Add(this.FilterCourse_Label);
             this.Controls.Add(this.searchStudent_TextBox);
@@ -361,7 +360,6 @@
             this.Controls.Add(this.DropStudent_Button);
             this.Controls.Add(this.EnrollStudent_Button);
             this.Controls.Add(this.PrintRoster_Button);
-            this.Controls.Add(this.Output_TextBox);
             this.Controls.Add(this.Course_ListBox);
             this.Controls.Add(this.Student_ListBox);
             this.Controls.Add(this.Title_Lable);
@@ -378,7 +376,6 @@
         private System.Windows.Forms.Label Title_Lable;
         private System.Windows.Forms.ListBox Student_ListBox;
         private System.Windows.Forms.ListBox Course_ListBox;
-        private System.Windows.Forms.TextBox Output_TextBox;
         private System.Windows.Forms.Button PrintRoster_Button;
         private System.Windows.Forms.Button EnrollStudent_Button;
         private System.Windows.Forms.Button DropStudent_Button;
@@ -405,6 +402,7 @@
         private System.Windows.Forms.TextBox searchStudent_TextBox;
         private System.Windows.Forms.Label FilterCourse_Label;
         private System.Windows.Forms.TextBox FilterCourse_TextBox;
+        private System.Windows.Forms.RichTextBox Output_TextBox;
     }
 }
 
