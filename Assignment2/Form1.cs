@@ -112,6 +112,7 @@ namespace Assignment2
 
         private void AddStudent_Button_Click(object sender, EventArgs e)
         {
+            //if any of the fields are empty, print error and return immediately
             if (AddName_TextBox.Text.Length == 0 ||
                 AddZid_TextBox.Text.Length == 0 ||
                 AddMajor_ComboBox.SelectedIndex == -1 ||
@@ -131,14 +132,22 @@ namespace Assignment2
             if (name.Contains(","))
             {
                 var name2 = name.Split(',');
-                name2[0] = name2[0].Trim();
-                name2[1] = name2[1].Trim();
-                lastName = Char.ToUpper(name2[0].First()) + name2[0].Substring(1);
-                firstName = Char.ToUpper(name2[1].First()) + name2[1].Substring(1);
+                if (name2.Count() > 1 && !string.IsNullOrEmpty(name2[1]))
+                {
+                    name2[0] = name2[0].Trim();
+                    name2[1] = name2[1].Trim();
+                    lastName = Char.ToUpper(name2[0].First()) + name2[0].Substring(1);
+                    firstName = Char.ToUpper(name2[1].First()) + name2[1].Substring(1);
+                }
+                else
+                {
+                    Output_TextBox.Text = "Error: First name is missing";
+                    return;
+                }
             }
             else
             {
-                Output_TextBox.Text = "Please separate student's last and first name with comma!";
+                Output_TextBox.Text = "Error: Please separate student's last and first name with comma!";
                 return;
             }
 
@@ -190,7 +199,7 @@ namespace Assignment2
 
             ushort capc = (ushort) AddCapacity_NumericUpDown.Value;
 
-            Program.m_courses.Add(new Course(Dept, crs, sect, null, capc));
+            Program.m_courses.Add(new Course(Dept, crs, sect, 3, capc)); //assume class will be 3 credit hours
             Output_TextBox.Text = "1 course added.";
         }
         
