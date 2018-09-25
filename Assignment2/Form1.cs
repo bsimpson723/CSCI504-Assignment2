@@ -172,7 +172,7 @@ namespace Assignment2
                 Output_TextBox.Text = "Please provide a valid 3 digits course number!";
                 return;
             }
-            uint crs = Convert.ToUInt32(AddCourse_TextBox.Text);
+            int crs = Int32.Parse(AddCourse_TextBox.Text);
 
             if (!AddSection_TextBox.Text.All(c => Char.IsLetterOrDigit(c)))
             {
@@ -183,7 +183,7 @@ namespace Assignment2
 
             ushort capc = (ushort) AddCapacity_NumericUpDown.Value;
 
-            Program.m_courses.Add(new Course(Dept, crs, sect, null, capc));
+            Program.m_courses.Add(new Course(Dept, (uint)crs, sect, null, capc));
             Output_TextBox.Text = "1 course added.";
         }
         
@@ -202,9 +202,17 @@ namespace Assignment2
                 return;
             }
             Course course = (Course) Course_ListBox.SelectedItem;
+            
+            if (course.EnrolledStudents.Contains(student.ZId))
+            {
+                Output_TextBox.Text = "Student " + student.ZId + " already enrolled " + course.ToString();
+                return;
+            }
 
             student.Enroll(course);
             Output_TextBox.Text = "Student z" + student.ZId + " successfully enrolled the course " + course.ToString() + ".";
+            
+            Program.m_courses.ResetBindings();
         }
         
          private void DropStudent_Button_Click(object sender, EventArgs e)
@@ -222,9 +230,17 @@ namespace Assignment2
                 return;
             }
             Course course = (Course)Course_ListBox.SelectedItem;
+            
+            if (!course.EnrolledStudents.Contains(student.ZId))
+            {
+                Output_TextBox.Text = "Student " + student.ZId + " haven't enrolled " + course.ToString();
+                return;
+            }
 
             student.Drop(course);
             Output_TextBox.Text = "Student z" + student.ZId + " successfully dropped the course " + course.ToString() + ".";
+            
+            Program.m_courses.ResetBindings();
         }
     }
 }
