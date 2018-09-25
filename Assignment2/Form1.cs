@@ -315,7 +315,7 @@ namespace Assignment2
         {
             var departmentCode = FilterCourse_TextBox.Text;
             List<Course> courses = Program.m_courses.ToList();
-            List<Course> filteredCourses = courses.FindAll(x => x.DepartmentCode == departmentCode);
+            List<Course> filteredCourses = courses.FindAll(x => x.DepartmentCode.ToUpper() == departmentCode.ToUpper());
             BindingList<Course> bindedCourses = new BindingList<Course>(filteredCourses);
 
             if (bindedCourses.Any())

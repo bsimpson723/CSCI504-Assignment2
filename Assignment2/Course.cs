@@ -135,7 +135,7 @@ namespace Simpson_Assign1
                 {
                     if (EnrolledStudents.Contains(student.ZId))
                     {
-                        var studentInfo = string.Format("{0} {1}, {2} {3}", student.ZId, student.LastName, student.FirstName, student.Major);
+                        var studentInfo = string.Format("{0}\t{1}, {2}\t{3}", student.ZId, student.LastName, student.FirstName, student.Major);
                         builder.Append(studentInfo);
                         builder.Append(Environment.NewLine);
                     }
