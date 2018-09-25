@@ -23,6 +23,7 @@ namespace Assignment2
             LoadData();
         }
 
+        //prints the students schedule in the rich text box when a student is selected
         private void StudentSelected(object sender, EventArgs e)
         {
             Student student = (Student) Student_ListBox.SelectedValue;
@@ -59,12 +60,14 @@ namespace Assignment2
             Output_TextBox.Text = builder.ToString();
         }
 
+        //prints the course roster in the rich text box
         private void PrintCourseClicked(object sender, EventArgs e)
         {
             Course course = (Course) Course_ListBox.SelectedValue;
             Output_TextBox.Text = course.PrintRoster(Program.m_students);
         }
 
+        //Loads the combo box and list box values.
         public void LoadData()
         {
             Course_ListBox.DataSource = Program.m_courses;
@@ -89,6 +92,7 @@ namespace Assignment2
             Output_TextBox.Text = null;
         }
 
+        //Adds new student to the student list
         private void AddStudent_Button_Click(object sender, EventArgs e)
         {
             //if any of the fields are empty, print error and return immediately
@@ -111,10 +115,10 @@ namespace Assignment2
             if (name.Contains(","))
             {
                 var name2 = name.Split(',');
-                if (name2.Count() > 1 && !string.IsNullOrEmpty(name2[1]))
+                if (name2.Count() > 1 && !string.IsNullOrEmpty(name2[1])) //make sure that a first AND last name are entered
                 {
-                    name2[0] = name2[0].Trim();
-                    name2[1] = name2[1].Trim();
+                    name2[0] = name2[0].Trim(); //remove any white space
+                    name2[1] = name2[1].Trim(); //remove any white space
                     lastName = Char.ToUpper(name2[0].First()) + name2[0].Substring(1);
                     firstName = Char.ToUpper(name2[1].First()) + name2[1].Substring(1);
                 }
@@ -130,17 +134,18 @@ namespace Assignment2
                 return;
             }
 
-            if (zid[0] == 'z')
+            if (zid[0] == 'z') //strip z from input in case it was entered
             {
                 zid = zid.Substring(1);
             }
             uint zidNum = 0;
-            if(!uint.TryParse(zid, out zidNum) || zid.Length != 7 )
+            if(!uint.TryParse(zid, out zidNum) || zid.Length < 7 ) //zID must be at least 1000000
             {
                 Output_TextBox.Text = "Please enter seven digits Z-ID!";
                 return;
             }
 
+            //IDs should always be unique
             if (Program.m_students.Any(x => x.ZId == zidNum))
             {
                 var outputText = string.Format("Error: A student with Z - ID '{0}' already exists", zidNum);
@@ -154,6 +159,7 @@ namespace Assignment2
             
         }
 
+        //Adds new course tot he course list
         private void AddCourse_Button_Click(object sender, EventArgs e)
         {
             if (AddDept_ComboBox.SelectedIndex == -1)
@@ -177,7 +183,8 @@ namespace Assignment2
             string sect = AddSection_TextBox.Text.ToUpper();
 
             ushort capc = (ushort) AddCapacity_NumericUpDown.Value;
-
+            
+            //Allow multiple sections, but combined dept, course and section should be unique
             if (Program.m_courses.Any(x => x.DepartmentCode == dept && x.CourseNumber == crs && x.SectionNumber == sect))
             {
                 Output_TextBox.Text = "Error: This course already exists.";
@@ -189,6 +196,7 @@ namespace Assignment2
             }
         }
         
+        //Adds student to a course roster or prints why they can't be added to the course roster
         private void EnrollStudent_Button_Click(object sender, EventArgs e)
         {
             if(Student_ListBox.SelectedIndex == -1)
@@ -226,6 +234,7 @@ namespace Assignment2
             Output_TextBox.Text = output;
         }
         
+        //removes student from a course roster or prints why they can't be removed from the course roster
          private void DropStudent_Button_Click(object sender, EventArgs e)
         {
             if (Student_ListBox.SelectedIndex == -1)
@@ -256,6 +265,7 @@ namespace Assignment2
             Output_TextBox.Text = output;
         }
 
+        //Entry point for list filtering... functionality is funneled to sub-routines.
         private void SearchButton_Click(object sender, EventArgs e)
         {
             Student_ListBox.DataSource = Program.m_students;
@@ -279,6 +289,7 @@ namespace Assignment2
             }
         }
 
+        //Sub-routine for filtering student list
         private void FilterStudents()
         {
             //if user added the z at the beginning strip it
@@ -314,6 +325,7 @@ namespace Assignment2
             }
         }
 
+        //Sub-routine for filtering course list
         private void FilterCourses()
         {
             var departmentCode = FilterCourse_TextBox.Text;
