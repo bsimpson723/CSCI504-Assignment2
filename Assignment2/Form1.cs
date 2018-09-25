@@ -158,7 +158,7 @@ namespace Assignment2
                 Output_TextBox.Text = "Please select a Department!";
                 return;
             }
-            string Dept = AddDept_ComboBox.SelectedItem.ToString();
+            string dept = AddDept_ComboBox.SelectedItem.ToString();
 
             if(!Regex.IsMatch(AddCourse_TextBox.Text, @"[0-9]{3,3}")) {
                 Output_TextBox.Text = "Please provide a valid 3 digits course number!";
@@ -175,8 +175,15 @@ namespace Assignment2
 
             ushort capc = (ushort) AddCapacity_NumericUpDown.Value;
 
-            Program.m_courses.Add(new Course(Dept, (uint)crs, sect, 3, capc)); //assume class will be 3 credit hours
-            Output_TextBox.Text = "1 course added.";
+            if (Program.m_courses.Any(x => x.DepartmentCode == dept && x.CourseNumber == crs && x.SectionNumber == sect))
+            {
+                Output_TextBox.Text = "Error: This course already exists.";
+            }
+            else
+            {
+                Program.m_courses.Add(new Course(dept, (uint) crs, sect, 3, capc)); //assume class will be 3 credit hours
+                Output_TextBox.Text = "1 course added.";
+            }
         }
         
         private void EnrollStudent_Button_Click(object sender, EventArgs e)
