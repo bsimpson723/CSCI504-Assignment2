@@ -262,7 +262,7 @@ namespace Assignment2
             //If zID and course input are both empty assign original list to listbox and return from function
             if (searchStudent_TextBox.Text.Length == 0 && FilterCourse_TextBox.Text.Length == 0)
             {
-                Output_TextBox.Text = "Error: No search criteria hase been provided.";
+                Output_TextBox.Text = "Error: No search criteria has been provided.";
                 return;
             }
 
