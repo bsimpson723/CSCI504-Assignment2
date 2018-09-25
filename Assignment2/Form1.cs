@@ -1,12 +1,15 @@
+/*
+ * CSCI 504: Programming principles in .NET
+ * Assignment 2
+ * Benjamin Simpson - Z100820
+ * Xueqiong Li - z1785226
+*/
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Simpson_Assign1;
 

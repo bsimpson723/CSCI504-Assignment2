@@ -5,11 +5,6 @@
  * Xueqiong Li - z1785226
 */
 using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Simpson_Assign1
 {
