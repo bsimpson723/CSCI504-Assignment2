@@ -80,7 +80,7 @@
             this.Student_ListBox.Name = "Student_ListBox";
             this.Student_ListBox.Size = new System.Drawing.Size(192, 433);
             this.Student_ListBox.Sorted = true;
-            this.Student_ListBox.TabIndex = 1;
+            this.Student_ListBox.TabIndex = 17;
             this.Student_ListBox.SelectedIndexChanged += new System.EventHandler(this.StudentSelected);
             // 
             // Course_ListBox
@@ -90,14 +90,14 @@
             this.Course_ListBox.Name = "Course_ListBox";
             this.Course_ListBox.Size = new System.Drawing.Size(192, 433);
             this.Course_ListBox.Sorted = true;
-            this.Course_ListBox.TabIndex = 2;
+            this.Course_ListBox.TabIndex = 18;
             // 
             // PrintRoster_Button
             // 
             this.PrintRoster_Button.Location = new System.Drawing.Point(45, 59);
             this.PrintRoster_Button.Name = "PrintRoster_Button";
             this.PrintRoster_Button.Size = new System.Drawing.Size(126, 31);
-            this.PrintRoster_Button.TabIndex = 4;
+            this.PrintRoster_Button.TabIndex = 1;
             this.PrintRoster_Button.Text = "Print Course Roster";
             this.PrintRoster_Button.UseVisualStyleBackColor = true;
             this.PrintRoster_Button.Click += new System.EventHandler(this.PrintCourseClicked);
@@ -107,7 +107,7 @@
             this.EnrollStudent_Button.Location = new System.Drawing.Point(45, 96);
             this.EnrollStudent_Button.Name = "EnrollStudent_Button";
             this.EnrollStudent_Button.Size = new System.Drawing.Size(126, 31);
-            this.EnrollStudent_Button.TabIndex = 5;
+            this.EnrollStudent_Button.TabIndex = 3;
             this.EnrollStudent_Button.Text = "Enroll Student";
             this.EnrollStudent_Button.UseVisualStyleBackColor = true;
             this.EnrollStudent_Button.Click += new System.EventHandler(this.EnrollStudent_Button_Click);
@@ -117,7 +117,7 @@
             this.DropStudent_Button.Location = new System.Drawing.Point(45, 133);
             this.DropStudent_Button.Name = "DropStudent_Button";
             this.DropStudent_Button.Size = new System.Drawing.Size(126, 31);
-            this.DropStudent_Button.TabIndex = 6;
+            this.DropStudent_Button.TabIndex = 5;
             this.DropStudent_Button.Text = "Drop Student";
             this.DropStudent_Button.UseVisualStyleBackColor = true;
             this.DropStudent_Button.Click += new System.EventHandler(this.DropStudent_Button_Click);
@@ -127,7 +127,7 @@
             this.Search_Button.Location = new System.Drawing.Point(45, 170);
             this.Search_Button.Name = "Search_Button";
             this.Search_Button.Size = new System.Drawing.Size(126, 31);
-            this.Search_Button.TabIndex = 7;
+            this.Search_Button.TabIndex = 6;
             this.Search_Button.Text = "Apply Search Criteria";
             this.Search_Button.UseVisualStyleBackColor = true;
             this.Search_Button.Click += new System.EventHandler(this.SearchButton_Click);
@@ -146,14 +146,14 @@
             this.AddName_TextBox.Location = new System.Drawing.Point(45, 248);
             this.AddName_TextBox.Name = "AddName_TextBox";
             this.AddName_TextBox.Size = new System.Drawing.Size(126, 20);
-            this.AddName_TextBox.TabIndex = 9;
+            this.AddName_TextBox.TabIndex = 7;
             // 
             // AddZid_TextBox
             // 
             this.AddZid_TextBox.Location = new System.Drawing.Point(182, 248);
             this.AddZid_TextBox.Name = "AddZid_TextBox";
             this.AddZid_TextBox.Size = new System.Drawing.Size(144, 20);
-            this.AddZid_TextBox.TabIndex = 11;
+            this.AddZid_TextBox.TabIndex = 8;
             // 
             // AddZid_Label
             // 
@@ -189,7 +189,7 @@
             this.AddMajor_ComboBox.Location = new System.Drawing.Point(45, 288);
             this.AddMajor_ComboBox.Name = "AddMajor_ComboBox";
             this.AddMajor_ComboBox.Size = new System.Drawing.Size(126, 21);
-            this.AddMajor_ComboBox.TabIndex = 14;
+            this.AddMajor_ComboBox.TabIndex = 9;
             this.AddMajor_ComboBox.Text = "--Select Major--";
             // 
             // AddYear_ComboBox
@@ -198,7 +198,7 @@
             this.AddYear_ComboBox.Location = new System.Drawing.Point(182, 288);
             this.AddYear_ComboBox.Name = "AddYear_ComboBox";
             this.AddYear_ComboBox.Size = new System.Drawing.Size(144, 21);
-            this.AddYear_ComboBox.TabIndex = 15;
+            this.AddYear_ComboBox.TabIndex = 10;
             this.AddYear_ComboBox.Text = "--Select Academic Year--";
             // 
             // AddStudent_Button
@@ -206,7 +206,7 @@
             this.AddStudent_Button.Location = new System.Drawing.Point(45, 315);
             this.AddStudent_Button.Name = "AddStudent_Button";
             this.AddStudent_Button.Size = new System.Drawing.Size(98, 24);
-            this.AddStudent_Button.TabIndex = 16;
+            this.AddStudent_Button.TabIndex = 11;
             this.AddStudent_Button.Text = "Add Student";
             this.AddStudent_Button.UseVisualStyleBackColor = true;
             this.AddStudent_Button.Click += new System.EventHandler(this.AddStudent_Button_Click);
@@ -234,7 +234,7 @@
             this.AddCourse_TextBox.Location = new System.Drawing.Point(182, 387);
             this.AddCourse_TextBox.Name = "AddCourse_TextBox";
             this.AddCourse_TextBox.Size = new System.Drawing.Size(126, 20);
-            this.AddCourse_TextBox.TabIndex = 20;
+            this.AddCourse_TextBox.TabIndex = 13;
             // 
             // AddCourse_Label
             // 
@@ -250,7 +250,7 @@
             this.AddSection_TextBox.Location = new System.Drawing.Point(45, 427);
             this.AddSection_TextBox.Name = "AddSection_TextBox";
             this.AddSection_TextBox.Size = new System.Drawing.Size(126, 20);
-            this.AddSection_TextBox.TabIndex = 18;
+            this.AddSection_TextBox.TabIndex = 14;
             // 
             // AddDept_Label
             // 
@@ -267,7 +267,7 @@
             this.AddDept_ComboBox.Location = new System.Drawing.Point(45, 386);
             this.AddDept_ComboBox.Name = "AddDept_ComboBox";
             this.AddDept_ComboBox.Size = new System.Drawing.Size(126, 21);
-            this.AddDept_ComboBox.TabIndex = 23;
+            this.AddDept_ComboBox.TabIndex = 12;
             this.AddDept_ComboBox.Text = "--Select Department--";
             // 
             // AddCourse_Button
@@ -275,7 +275,7 @@
             this.AddCourse_Button.Location = new System.Drawing.Point(45, 453);
             this.AddCourse_Button.Name = "AddCourse_Button";
             this.AddCourse_Button.Size = new System.Drawing.Size(98, 24);
-            this.AddCourse_Button.TabIndex = 25;
+            this.AddCourse_Button.TabIndex = 16;
             this.AddCourse_Button.Text = "AddCourse";
             this.AddCourse_Button.UseVisualStyleBackColor = true;
             this.AddCourse_Button.Click += new System.EventHandler(this.AddCourse_Button_Click);
@@ -283,10 +283,20 @@
             // AddCapacity_NumericUpDown
             // 
             this.AddCapacity_NumericUpDown.Location = new System.Drawing.Point(182, 428);
+            this.AddCapacity_NumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.AddCapacity_NumericUpDown.Name = "AddCapacity_NumericUpDown";
             this.AddCapacity_NumericUpDown.Size = new System.Drawing.Size(126, 20);
-            this.AddCapacity_NumericUpDown.TabIndex = 26;
+            this.AddCapacity_NumericUpDown.TabIndex = 15;
             this.AddCapacity_NumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.AddCapacity_NumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // SearchStudent_Label
             // 
@@ -302,7 +312,7 @@
             this.searchStudent_TextBox.Location = new System.Drawing.Point(182, 75);
             this.searchStudent_TextBox.Name = "searchStudent_TextBox";
             this.searchStudent_TextBox.Size = new System.Drawing.Size(144, 20);
-            this.searchStudent_TextBox.TabIndex = 28;
+            this.searchStudent_TextBox.TabIndex = 2;
             // 
             // FilterCourse_Label
             // 
@@ -318,7 +328,7 @@
             this.FilterCourse_TextBox.Location = new System.Drawing.Point(182, 121);
             this.FilterCourse_TextBox.Name = "FilterCourse_TextBox";
             this.FilterCourse_TextBox.Size = new System.Drawing.Size(144, 20);
-            this.FilterCourse_TextBox.TabIndex = 30;
+            this.FilterCourse_TextBox.TabIndex = 4;
             // 
             // Output_TextBox
             // 
