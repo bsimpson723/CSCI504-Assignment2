@@ -112,6 +112,15 @@ namespace Assignment2
 
         private void AddStudent_Button_Click(object sender, EventArgs e)
         {
+            if (AddName_TextBox.Text.Length == 0 ||
+                AddZid_TextBox.Text.Length == 0 ||
+                AddMajor_ComboBox.SelectedIndex == -1 ||
+                AddYear_ComboBox.SelectedIndex == -1)
+            {
+                Output_TextBox.Text = "Error: Please provide the student's name, Z-ID, Major and Academic Year";
+                return;
+            }
+
             string lastName = "";
             string firstName = "";
             string name = AddName_TextBox.Text.ToLower();
@@ -122,11 +131,10 @@ namespace Assignment2
             if (name.Contains(","))
             {
                 var name2 = name.Split(',');
-                name2[0].Replace(" ", "");
-                name2[1].Replace(" ", "");
-                lastName = name2[0].First().ToString().ToUpper() + name2[0].Substring(1);
-                firstName = name2[1].First().ToString().ToUpper() + name2[1].Substring(1);
-
+                name2[0] = name2[0].Trim();
+                name2[1] = name2[1].Trim();
+                lastName = Char.ToUpper(name2[0].First()) + name2[0].Substring(1);
+                firstName = Char.ToUpper(name2[1].First()) + name2[1].Substring(1);
             }
             else
             {
@@ -142,18 +150,6 @@ namespace Assignment2
             if(!uint.TryParse(zid, out zidNum) || zid.Length != 7 )
             {
                 Output_TextBox.Text = "Please enter seven digits Z-ID!";
-                return;
-            }
-
-            if(AddMajor_ComboBox.SelectedIndex == -1)
-            {
-                Output_TextBox.Text = "Please select a major!";
-                return;
-            }
-
-            if (AddYear_ComboBox.SelectedIndex == -1)
-            {
-                Output_TextBox.Text = "Please select an academic year!";
                 return;
             }
 
@@ -300,24 +296,25 @@ namespace Assignment2
             //if any characters after the leading z is stripped are not a digit then throw an error and return
             if (!input.All(x => char.IsDigit(x)))
             {
-                Output_TextBox.Text = "Error: Please enter a valid Z-ID\n";
+                Output_TextBox.Text = "Error: Please enter a valid Z-ID";
                 Output_TextBox.AppendText(Environment.NewLine);
                 return;
             }
+
             //Now we actually filter the list
-            var zID = Convert.ToUInt32(input);
             List<Student> studentList = Program.m_students.ToList();
-            List<Student> filteredStudents = studentList.FindAll(x => x.ZId == zID);
+            List<Student> filteredStudents = studentList.FindAll(x => x.ZId.ToString().StartsWith(input));
             BindingList<Student> bindedStudents = new BindingList<Student>(filteredStudents);
 
             if (bindedStudents.Any())
             {
                 Student_ListBox.DataSource = bindedStudents;
+                Output_TextBox.Clear();
             }
             else
             {
                 Student_ListBox.DataSource = Program.m_students;
-                Output_TextBox.Text = "No students with that Z-ID were found.\n";
+                Output_TextBox.Text = "No students match your search criteria.";
                 Output_TextBox.AppendText(Environment.NewLine);
             }
         }
@@ -325,13 +322,6 @@ namespace Assignment2
         private void FilterCourses()
         {
             var departmentCode = FilterCourse_TextBox.Text;
-            if (!AddDept_ComboBox.Items.Contains(departmentCode))
-            {
-                Output_TextBox.AppendText(Environment.NewLine);
-                Output_TextBox.Text += "Error: Please enter a valid department code.";
-                return;
-            }
-
             List<Course> courses = Program.m_courses.ToList();
             List<Course> filteredCourses = courses.FindAll(x => x.DepartmentCode == departmentCode);
             BindingList<Course> bindedCourses = new BindingList<Course>(filteredCourses);
@@ -343,7 +333,7 @@ namespace Assignment2
             else
             {
                 Course_ListBox.DataSource = Program.m_courses;
-                Output_TextBox.Text += "No courses with that department code were found.";
+                Output_TextBox.Text += "No courses match your search criteria.";
             }
         }
     }
