@@ -63,7 +63,7 @@ namespace Assignment2
         //prints the course roster in the rich text box
         private void PrintCourseClicked(object sender, EventArgs e)
         {
-            Course course = (Course) Course_ListBox.SelectedValue;
+            Course course = (Course) Course_ListBox.SelectedItem;
             Output_TextBox.Text = course.PrintRoster(Program.m_students);
         }
 
@@ -156,7 +156,7 @@ namespace Assignment2
                 Program.m_students.Add(new Student(zidNum, lastName, firstName, major, year, null));
                 Output_TextBox.Text = "1 student added.";
             }
-            
+            Program.m_students.ResetBindings();
         }
 
         //Adds new course tot he course list
@@ -183,7 +183,7 @@ namespace Assignment2
             string sect = AddSection_TextBox.Text.ToUpper();
 
             ushort capc = (ushort) AddCapacity_NumericUpDown.Value;
-            
+
             //Allow multiple sections, but combined dept, course and section should be unique
             if (Program.m_courses.Any(x => x.DepartmentCode == dept && x.CourseNumber == crs && x.SectionNumber == sect))
             {
@@ -191,9 +191,11 @@ namespace Assignment2
             }
             else
             {
-                Program.m_courses.Add(new Course(dept, (uint) crs, sect, 3, capc)); //assume class will be 3 credit hours
+                Program.m_courses.Add(new Course(dept, (uint)crs, sect, 3, capc)); //assume class will be 3 credit hours
                 Output_TextBox.Text = "1 course added.";
             }
+
+            Program.m_courses.ResetBindings();
         }
         
         //Adds student to a course roster or prints why they can't be added to the course roster
@@ -231,6 +233,7 @@ namespace Assignment2
                     break;
             }
 
+            Program.m_courses.ResetBindings();
             Output_TextBox.Text = output;
         }
         
@@ -262,6 +265,7 @@ namespace Assignment2
                 output = string.Format("Error: z{0} is not currently enrolled in {1} {2}-{3}.", student.ZId, course.DepartmentCode, course.CourseNumber, course.SectionNumber);
             }
 
+            Program.m_courses.ResetBindings();
             Output_TextBox.Text = output;
         }
 
